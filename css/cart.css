@@ -1,0 +1,131 @@
+body {
+	margin: 0;
+	padding: 0;
+	font-family: Arial;
+}
+
+main {
+	display: flex;
+	flex-wrap: no-wrap;
+}
+
+.bigger {font-size: 1.3rem;}
+
+#products-wrapper {
+	padding: 10px;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	flex-grow: 1;
+}
+
+#product-search {
+	font-size: 1rem;
+	background-color: #F1F1F1;
+	border-radius: 15px;
+	border: 1px solid #DEDEDE;
+	padding: 10px;
+	align-self: flex-start;
+	min-width: 300px;
+	outline: none;
+}
+
+#product-list {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	margin-top: 40px;
+}
+
+.product {
+	width: 250px;
+	border: 1px solid #DEDEDE;
+	margin: 20px 40px;
+}
+
+.product > .photo {
+	background-color: #F1F1F1;
+	height: 250px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 6rem;
+	position: relative;
+}
+
+.photo .product-add2cart {
+	position: absolute;
+	right: 0px;
+	bottom: 0px;
+	background-color: #4FE778;
+	font-size: 2rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 60px;
+	height: 50px;
+	cursor: pointer;
+}
+
+.photo .product-add2cart:hover {
+	background-color: #4FB778;
+}
+
+.product .details-top {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 15px;
+	padding: 0 5px;
+}
+
+.product .details-description {
+	padding: 15px 5px;
+	font-size: 0.9rem;
+	color: #333333;
+	text-align: justify;
+}
+
+#cart-wrapper {
+	border-left: 1px solid #CCCCCC;
+	padding: 10px;
+	min-width: 300px;
+	min-height: 250px;
+}
+
+h2 { margin: 0; }
+
+#cart-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+#empty-cart {
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+#empty-cart:hover {color: tomato;}
+
+#cart-content {
+	margin-top: 10px;
+	width: 100%;
+	border-collapse: collapse;
+}
+
+#cart-content td { height: 30px; }
+#cart-content tr:nth-child(even) { background-color: #F1F1F1; }
+#cart-content td[data-type="qte"] { width: 30px; }
+#cart-content td[data-type="amount"] {
+	width: 100px;
+	text-align: right;
+}
+
+#cart-footer {
+	margin-top: 10px;
+	padding-top: 10px;
+	border-top: 1px solid #CCCCCC;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+}

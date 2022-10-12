@@ -1,3 +1,5 @@
+import { addToCart } from './cart.js';
+
 /**
  * @param {*} product 
  */
@@ -41,6 +43,10 @@ function displayProduct(product) {
 
     divProduct.append(divPhoto, divDetails);
     divProductList.appendChild(divProduct);
+
+    aProduct.addEventListener('click', function(e){
+        addToCart(product);
+    });
 }
 
 /**

@@ -1,11 +1,11 @@
-let panier = Array();
+let panier = [];
 
 export function addToCart(product){
-    panier.forEach((pdt) => {
-        if (pdt == product) {
-            panier[pdt].qte++;
-        }else{
-            panier.push([pdt, qte=1])
-        }
-    });
+    // bug
+    if (panier.find(pdt => pdt.ref === product.ref)) {
+        panier.find(pdt => pdt.ref === product.ref).qte+=1;
+    }else{
+        panier.push({product, qte: 1})
+    }
+    console.log(panier);
 }

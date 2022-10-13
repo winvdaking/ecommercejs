@@ -6,5 +6,4 @@ export function addToCart(product){
     }else{
         panier.push({product, qte: 1})
     }
-    console.log(panier);
 }

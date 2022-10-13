@@ -1,4 +1,5 @@
 import { addToCart, panier } from './cart.js';
+import { removeAllChildNodes } from './utils.js';
 
 /**
  * @param {*} product 
@@ -64,7 +65,7 @@ export function buildProductsList(tabProducts){
  */
 export function displayCart(panier){
     const table = document.getElementById('cart-content');
-
+    removeAllChildNodes(table);
     let nbProducts;
     let total = 0; 
 
@@ -91,15 +92,7 @@ export function displayCart(panier){
 }
 
 function genericCalc(total, nbItem){
-    document.getElementById('total-products').innerHTML = Number(nbItem);
+    console.log(nbItem);
+    document.getElementById('total-products').innerHTML = nbItem;
     document.getElementById('cart-total').innerHTML = total + "€";
 }
-
-
-/*
-<tr>
-	<td data-type="ref">#REF2</td>
-	<td data-type="qte">x2</td>
-    <td data-type="amount">258,50€</td>
-</tr>
-*/

@@ -46,6 +46,7 @@ function displayProduct(product) {
 
     aProduct.addEventListener('click', function(e){
         addToCart(product);
+        displayCart(panier);
     });
 }
 
@@ -62,7 +63,6 @@ export function buildProductsList(tabProducts){
  * @param {*} panier 
  */
 export function displayCart(panier){
-    console.log(panier);
     const table = document.getElementById('cart-content');
 
     panier.forEach(line => {
@@ -79,7 +79,7 @@ export function displayCart(panier){
         tdAmout.innerHTML = line.qte * line.product.price;
 
         tr.append(tdRef, tdQte, tdAmout);
-        table.appendChild('tr');
+        table.appendChild(tr);
     });
 }
 

@@ -66,7 +66,7 @@ export function buildProductsList(tabProducts){
 export function displayCart(panier){
     const table = document.getElementById('cart-content');
     removeAllChildNodes(table);
-    let nbProducts;
+    let nbProducts = 0;
     let total = 0; 
 
     panier.forEach(line => {
@@ -91,6 +91,10 @@ export function displayCart(panier){
     genericCalc(total, nbProducts);
 }
 
+/**
+ * @param {*} total 
+ * @param {*} nbItem 
+ */
 function genericCalc(total, nbItem){
     console.log(nbItem);
     document.getElementById('total-products').innerHTML = nbItem;

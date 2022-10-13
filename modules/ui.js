@@ -1,4 +1,4 @@
-import { addToCart } from './cart.js';
+import { addToCart, panier } from './cart.js';
 
 /**
  * @param {*} product 
@@ -58,21 +58,40 @@ export function buildProductsList(tabProducts){
     });
 }
 
+/**
+ * @param {*} panier 
+ */
+export function displayCart(panier){
+    console.log(panier);
+    const table = document.getElementById('cart-content');
+
+    panier.forEach(line => {
+        const tr = document.createElement('tr');
+        const tdRef = document.createElement('td');
+        const tdQte = document.createElement('td');
+        const tdAmout = document.createElement('td');
+        tdRef.dataset.ref = line.product.ref;
+        tdQte.dataset.qte = line.qte;
+        tdAmout.dataset.amout = line.qte * line.product.price;
+
+        tdRef.innerHTML = line.product.ref;
+        tdQte.innerHTML = line.qte;
+        tdAmout.innerHTML = line.qte * line.product.price;
+
+        tr.append(tdRef, tdQte, tdAmout);
+        table.appendChild('tr');
+    });
+}
+
+function genericCalc(){
+
+}
+
 
 /*
-                    <div class="photo">
-                        <span class="mdi mdi-camera"></span>
-                        <a class="product-add2cart">
-                            <span class="mdi mdi-cart"></span>
-                        </a>
-                    </div>
-                    <div class="details">
-                        <div class="details-top">
-                            <strong class="bigger" data-type="ref">#REF1</strong>
-                            <strong class="bigger" data-type="price">250,29&nbsp;€</strong>
-                        </div>
-                        <div class="details-description">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                        </div>
-                    </div>
-                */
+<tr>
+	<td data-type="ref">#REF2</td>
+	<td data-type="qte">x2</td>
+    <td data-type="amount">258,50€</td>
+</tr>
+*/

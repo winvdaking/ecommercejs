@@ -7,3 +7,7 @@ export function addToCart(product){
         panier.push({product, qte: 1})
     }
 }
+
+export function emptyCart(){
+    panier = [];
+}

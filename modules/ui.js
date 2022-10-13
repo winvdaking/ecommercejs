@@ -36,9 +36,9 @@ function displayProduct(product) {
     divDetails.appendChild(divDetailsDescription);
 
     strongRef.innerText = product.ref;
-    strongRef.dataset.ref = product.ref;
+    strongRef.dataset.type = "ref";
     strongPrice.innerText = product.price;
-    strongPrice.dataset.price = product.price;
+    strongPrice.dataset.type = "price";
     divDetailsDescription.innerText = product.description;
 
     divProduct.append(divPhoto, divDetails);
@@ -65,26 +65,34 @@ export function buildProductsList(tabProducts){
 export function displayCart(panier){
     const table = document.getElementById('cart-content');
 
+    let nbProducts;
+    let total = 0; 
+
     panier.forEach(line => {
         const tr = document.createElement('tr');
         const tdRef = document.createElement('td');
         const tdQte = document.createElement('td');
         const tdAmout = document.createElement('td');
-        tdRef.dataset.ref = line.product.ref;
-        tdQte.dataset.qte = line.qte;
-        tdAmout.dataset.amout = line.qte * line.product.price;
+        tdRef.dataset.type = 'ref';
+        tdQte.dataset.type = 'qte';
+        tdAmout.dataset.type = 'amout';
 
         tdRef.innerHTML = line.product.ref;
-        tdQte.innerHTML = line.qte;
-        tdAmout.innerHTML = line.qte * line.product.price;
+        tdQte.innerHTML = "x" + line.qte;
+        tdAmout.innerHTML = line.qte * line.product.price + "€";
 
         tr.append(tdRef, tdQte, tdAmout);
         table.appendChild(tr);
+        total += line.qte * line.product.price;
+        nbProducts += line.qte;
     });
+
+    genericCalc(total, nbProducts);
 }
 
-function genericCalc(){
-
+function genericCalc(total, nbItem){
+    document.getElementById('total-products').innerHTML = Number(nbItem);
+    document.getElementById('cart-total').innerHTML = total + "€";
 }
 
 

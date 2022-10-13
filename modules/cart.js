@@ -1,3 +1,6 @@
+import { genericCalc } from "./ui.js";
+import { removeAllChildNodes } from "./utils.js";
+
 export let panier = [];
 
 export function addToCart(product){
@@ -10,4 +13,6 @@ export function addToCart(product){
 
 export function emptyCart(){
     panier = [];
+    removeAllChildNodes(document.getElementById('cart-content'));
+    genericCalc(0, 0);
 }

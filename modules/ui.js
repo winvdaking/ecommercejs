@@ -95,8 +95,7 @@ export function displayCart(panier){
  * @param {*} total 
  * @param {*} nbItem 
  */
-function genericCalc(total, nbItem){
-    console.log(nbItem);
+export function genericCalc(total, nbItem){
     document.getElementById('total-products').innerHTML = nbItem;
     document.getElementById('cart-total').innerHTML = total + "€";
 }

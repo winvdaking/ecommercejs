@@ -15,6 +15,5 @@ export function init() {
 
     document.getElementById('empty-cart').addEventListener('click', (handler) => {
         emptyCart();
-        removeAllChildNodes(document.getElementById('cart-content'));
     });
 }   

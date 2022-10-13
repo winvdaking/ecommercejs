@@ -1,7 +1,7 @@
 import { products, search } from './products.js';
-import { buildProductsList } from './ui.js';
+import { buildProductsList, displayCart } from './ui.js';
 import { removeAllChildNodes } from './utils.js';
-import { emptyCart } from './cart.js';
+import { emptyCart, panier } from './cart.js';
 
 export function init() {
     buildProductsList(products);
@@ -16,4 +16,6 @@ export function init() {
     document.getElementById('empty-cart').addEventListener('click', (handler) => {
         emptyCart();
     });
+
+    displayCart(panier);
 }   

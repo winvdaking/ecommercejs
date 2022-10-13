@@ -64,6 +64,7 @@ export function buildProductsList(tabProducts){
  * @param {*} panier 
  */
 export function displayCart(panier){
+    console.log(panier);
     const table = document.getElementById('cart-content');
     removeAllChildNodes(table);
     let nbProducts = 0;
